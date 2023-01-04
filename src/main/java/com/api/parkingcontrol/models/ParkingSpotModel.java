@@ -1,6 +1,8 @@
 package com.api.parkingcontrol.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -12,6 +14,7 @@ public class ParkingSpotModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+
 
     @Column(nullable = false, unique = true, length = 18)
     private String parkingSpotNumber;
