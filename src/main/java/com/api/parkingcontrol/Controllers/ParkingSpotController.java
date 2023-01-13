@@ -57,5 +57,15 @@ public class ParkingSpotController {
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotOptional.get());
     }
 
+    @DeleteMapping(value="/{id}")
+    public ResponseEntity<Object> deleteByIdParking(@PathVariable UUID id){
+        Optional<ParkingSpotModel> parkingSpotOptional=parkingSpotService.findByIdParking(id);
+        if(!parkingSpotOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Parking spot not found");
+        }
+        parkingSpotService.deleteParkingSpot(parkingSpotOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Parking Spot deleted successfully!");
+    }
+
 
 }
