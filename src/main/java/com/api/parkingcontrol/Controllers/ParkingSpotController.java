@@ -48,8 +48,7 @@ public class ParkingSpotController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ParkingSpotModel>> getAllParkingSpots(@PageableDefault(page=0,
-            size=10,sort="id",direction= Sort.Direction.ASC) Pageable pageable){
+    public ResponseEntity<Page<ParkingSpotModel>> getAllParkingSpots(@PageableDefault(page = 0,size=10,sort= "id",direction=Sort.Direction.ASC) Pageable pageable){
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAllParking(pageable));
     }
 
@@ -60,6 +59,24 @@ public class ParkingSpotController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Parking spot not found");
         }
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotOptional.get());
+    }
+
+    @GetMapping(value="/spot-number")
+    public ResponseEntity<List<ParkingSpotModel>> findAllbySpotNumber(@RequestParam("parkingSpotNumber") String spotNumber){
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findByParkingSpotNumber(spotNumber));
+
+    }
+
+    @GetMapping(value="/plate-car")
+    public ResponseEntity<List<ParkingSpotModel>> findAllbyPlateCar(@RequestParam("licensePlateCar") String licensePlateCar){
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findByLicensePlateCar(licensePlateCar));
+
+    }
+
+    @GetMapping(value="/name")
+    public ResponseEntity<List<ParkingSpotModel>> findAllbyResponsibleName(@RequestParam("name") String name){
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findByResponsibleName(name));
+
     }
 
     @DeleteMapping(value="/{id}")

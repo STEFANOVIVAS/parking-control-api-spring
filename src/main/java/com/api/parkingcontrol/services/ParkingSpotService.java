@@ -22,7 +22,6 @@ public class ParkingSpotService {
     }
 
 
-
     @Transactional
     public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {
         return parkingSpotRepository.save(parkingSpotModel);
@@ -42,13 +41,25 @@ public class ParkingSpotService {
     }
 
     public Page<ParkingSpotModel> findAllParking(Pageable pageable) {
-
         return parkingSpotRepository.findAll(pageable);
     }
 
     public Optional<ParkingSpotModel> findByIdParking(UUID id){
         return parkingSpotRepository.findById(id);
     }
+
+    public List<ParkingSpotModel> findByParkingSpotNumber(String parkingSpotNumber){
+        return parkingSpotRepository.findByParkingSpotNumberContains(parkingSpotNumber);
+    }
+
+    public List<ParkingSpotModel> findByLicensePlateCar(String licensePlateCar){
+        return parkingSpotRepository.findByLicensePlateCarContains(licensePlateCar);
+    }
+
+    public List<ParkingSpotModel> findByResponsibleName(String responsibleName){
+        return parkingSpotRepository.findByResponsibleNameContains(responsibleName);
+    }
+
     @Transactional
     public void deleteParkingSpot(ParkingSpotModel parkingSpotModel){
         parkingSpotRepository.delete(parkingSpotModel);
