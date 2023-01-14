@@ -1,5 +1,6 @@
 package com.api.parkingcontrol.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
@@ -19,6 +20,7 @@ public class ParkingSpotModel implements Serializable {
     @Column(nullable = false, unique = true, length = 18)
     private String parkingSpotNumber;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
     @Column(nullable = false)
     private LocalDateTime registrationDate;
 
