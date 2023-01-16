@@ -2,5 +2,5 @@
 Parking control api with Spring MVC, Spring Data JPA, Validation and Postgresql database.
 
 <p>
-  <img src="./parking-spot.jpg">
+  <img src="./parking.jpg">
 <p/>
