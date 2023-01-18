@@ -22,7 +22,7 @@ Parking control API with the following technologies:
 
 
 <p>
-  <img src="./delete - parking.png">
+  <img src="./DELETE - parking.png">
 <p/>
 
 
