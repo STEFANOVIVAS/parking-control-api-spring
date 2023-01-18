@@ -6,23 +6,23 @@ import jakarta.validation.constraints.Size;
 
 public class ParkingSpotDto {
 
-    @NotBlank
+    @NotBlank (message = "Parking spot number is mandatory.")
     private String parkingSpotNumber;
 
-    @NotBlank
-    @Size(max = 7)
+    @NotBlank(message = "License plate car is mandatory.")
+    @Size(max = 7,message="License plate should have up to 7 characters")
     private String licensePlateCar;
 
-    @NotBlank
+    @NotBlank (message = "Car's brand is mandatory.")
     private String brandCar;
 
-    @NotBlank
+    @NotBlank (message = "car's model is mandatory.")
     private String modelCar;
 
     @NotBlank
     private String color;
 
-    @NotBlank
+    @NotBlank (message = "Responsible name is mandatory.")
     private String responsibleName;
 
     @NotBlank

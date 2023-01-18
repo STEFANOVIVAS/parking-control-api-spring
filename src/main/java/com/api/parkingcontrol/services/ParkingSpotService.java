@@ -48,16 +48,16 @@ public class ParkingSpotService {
         return parkingSpotRepository.findById(id);
     }
 
-    public List<ParkingSpotModel> findByParkingSpotNumber(String parkingSpotNumber){
-        return parkingSpotRepository.findByParkingSpotNumberContains(parkingSpotNumber);
+    public Page<ParkingSpotModel> findByParkingSpotNumber(String parkingSpotNumber, Pageable pageable){
+        return parkingSpotRepository.findByParkingSpotNumberContains(parkingSpotNumber, pageable);
     }
 
-    public List<ParkingSpotModel> findByLicensePlateCar(String licensePlateCar){
-        return parkingSpotRepository.findByLicensePlateCarContains(licensePlateCar);
+    public Page<ParkingSpotModel> findByLicensePlateCar(String licensePlateCar,Pageable pageable){
+        return parkingSpotRepository.findByLicensePlateCarContains(licensePlateCar,pageable);
     }
 
-    public List<ParkingSpotModel> findByResponsibleName(String responsibleName){
-        return parkingSpotRepository.findByResponsibleNameContains(responsibleName);
+    public Page<ParkingSpotModel> findByResponsibleName(String responsibleName,Pageable pageable){
+        return parkingSpotRepository.findByResponsibleNameContains(responsibleName,pageable);
     }
 
     @Transactional

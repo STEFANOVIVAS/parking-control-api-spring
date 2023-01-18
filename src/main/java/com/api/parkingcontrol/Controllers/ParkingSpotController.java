@@ -62,20 +62,20 @@ public class ParkingSpotController {
     }
 
     @GetMapping(value="/spot-number")
-    public ResponseEntity<List<ParkingSpotModel>> findAllbySpotNumber(@RequestParam("parkingSpotNumber") String spotNumber){
-        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findByParkingSpotNumber(spotNumber));
+    public ResponseEntity<Page<ParkingSpotModel>> findAllbySpotNumber(@RequestParam("parkingSpotNumber") String spotNumber, Pageable pageable){
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findByParkingSpotNumber(spotNumber,pageable));
 
     }
 
     @GetMapping(value="/plate-car")
-    public ResponseEntity<List<ParkingSpotModel>> findAllbyPlateCar(@RequestParam("licensePlateCar") String licensePlateCar){
-        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findByLicensePlateCar(licensePlateCar));
+    public ResponseEntity<Page<ParkingSpotModel>> findAllbyPlateCar(@RequestParam("licensePlateCar") String licensePlateCar,Pageable pageable){
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findByLicensePlateCar(licensePlateCar,pageable));
 
     }
 
     @GetMapping(value="/name")
-    public ResponseEntity<List<ParkingSpotModel>> findAllbyResponsibleName(@RequestParam("name") String name){
-        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findByResponsibleName(name));
+    public ResponseEntity<Page<ParkingSpotModel>> findAllby(@RequestParam("licensePlateCar") String licensePlateCar,Pageable pageable){
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findByLicensePlateCar(licensePlateCar,pageable));
 
     }
 
